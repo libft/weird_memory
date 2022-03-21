@@ -1,11 +1,14 @@
 #include "weird_memory.h"
 #include "rd_route/rd_route.h"
+
 #include <stdlib.h>
+#include <stddef.h>
 #include <unistd.h>
 #include <stdio.h>
 
 void* (*real_malloc)(size_t);
 ssize_t (*real_write)(int, const void*, size_t);
+
 int g_mallocSuccess = 1;
 
 void* my_malloc(size_t size)
